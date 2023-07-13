@@ -1,21 +1,18 @@
+//FILE SYSTEM MODULE
 
-const path = require('path');
-const filename = "F:/WEB DEVELOPMENT/React(2022)/Mern Practice/Practice/Simple_node/test.js";
+//write file
+fs.writeFileSync('my-file.txt', 'hello world')
+// add data into file
+fs.appendFileSync('my-file.txt', 'hello world, this is my text file')
 
-
-const file = path.basename(filename);
-const dir = path.dirname(filename);
-const ext = path.extname(filename);
-// const frmt = path.format(filename);
-// const absolute = path.isAbsolut(filename);
-// const join = path.join(filename);
-// const normalize = path.normalize(filename);
-// const parse = path.parse(filename);
-// const posix = path.posix(filename);
-// const relative = path.relative(filename);
-// const resolve = path.relative(filename);
-// const sep = path.sep(filename);
-// const win = path.win32(filename);
+//synchronously write file
+ const data = fs.readFileSync('my-file.txt')
+console.log(data.toString());
 
 
-console.log(`path information ::: `, file);
+//asynchronously write file
+fs.readFile('my-file.txt', (err, data) => {
+    console.log('asyncronous data :::::: ' + data.toString());
+})
+
+console.log('hello js');
