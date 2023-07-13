@@ -1,18 +1,9 @@
-//FILE SYSTEM MODULE
+const School = require('./event')
+//register a listener for bellRing
 
-//write file
-fs.writeFileSync('my-file.txt', 'hello world')
-// add data into file
-fs.appendFileSync('my-file.txt', 'hello world, this is my text file')
+const school = new School();
 
-//synchronously write file
- const data = fs.readFileSync('my-file.txt')
-console.log(data.toString());
-
-
-//asynchronously write file
-fs.readFile('my-file.txt', (err, data) => {
-    console.log('asyncronous data :::::: ' + data.toString());
-})
-
-console.log('hello js');
+school.on('bellRing', function(period){
+    console.log(`shahin event k dore fel!!!, because ${period}`);
+});
+school.startPeriod()
